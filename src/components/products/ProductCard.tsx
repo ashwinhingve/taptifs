@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/useCartStore";
 import type { ProductData } from "@/data/products";
@@ -8,9 +9,10 @@ import { useState } from "react";
 
 interface ProductCardProps {
   product: ProductData;
+  showSaleBadge?: boolean;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, showSaleBadge = false }: ProductCardProps) {
   const [isAdding, setIsAdding] = useState(false);
   const [imageError, setImageError] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
@@ -34,10 +36,12 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Product Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">
           {!imageError ? (
-            <img
+            <Image
               src={product.images[0]}
               alt={product.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               onError={() => setImageError(true)}
             />
@@ -51,16 +55,20 @@ export function ProductCard({ product }: ProductCardProps) {
               </div>
             </div>
           )}
-          {product.featured && (
+          {product.featured && !showSaleBadge && (
             <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded">
               Featured
             </div>
           )}
-          {discount > 0 && (
+          {showSaleBadge && discount > 0 ? (
+            <div className="absolute top-2 right-2 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded shadow-md">
+              SALE
+            </div>
+          ) : discount > 0 ? (
             <div className="absolute top-2 right-2 bg-destructive text-destructive-foreground text-xs font-semibold px-2 py-1 rounded">
               {discount}% OFF
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* Product Info */}

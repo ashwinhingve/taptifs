@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.meesho.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
     unoptimized: false,
   },
