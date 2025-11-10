@@ -4,7 +4,7 @@ import { Check } from "lucide-react"
 
 export interface CheckboxProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label?: string;
+  label?: React.ReactNode;
   error?: string;
 }
 
