@@ -4,9 +4,9 @@ export function PartnerLogos() {
   const partners = [
     { name: "Amazon", logo: "🛒" },
     { name: "Flipkart", logo: "🛍️" },
-    { name: "BigBasket", logo: "🛵" },
-    { name: "Swiggy", logo: "🥘" },
-    { name: "Zomato", logo: "🍴" },
+    { name: "meesho", logo: "🛵" },
+    // { name: "Swiggy", logo: "🥘" },
+    // { name: "Zomato", logo: "🍴" },
   ];
 
   return (
@@ -15,7 +15,7 @@ export function PartnerLogos() {
         {partners.map((partner, idx) => (
           <div
             key={idx}
-            className="text-center opacity-60 hover:opacity-100 transition-opacity"
+            className="text-center opacity-80 hover:opacity-100 transition-opacity"
           >
             <div className="text-4xl mb-2">{partner.logo}</div>
             <p className="text-sm font-medium text-gray-600">{partner.name}</p>

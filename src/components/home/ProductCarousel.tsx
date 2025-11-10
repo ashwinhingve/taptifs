@@ -12,6 +12,7 @@ interface ProductCarouselProps {
 export function ProductCarousel({ products }: ProductCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(4);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Responsive products per page
   useEffect(() => {
@@ -32,6 +33,17 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
 
   const totalPages = Math.ceil(products.length / productsPerPage);
 
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying || totalPages <= 1) return;
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, totalPages]);
+
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalPages);
   };
@@ -46,7 +58,11 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
   );
 
   return (
-    <div className="relative px-4 sm:px-0">
+    <div
+      className="relative px-4 sm:px-0"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
       {/* Navigation Arrows */}
       {totalPages > 1 && (
         <>

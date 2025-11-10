@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/products/ProductCard";
 import { getFeaturedProducts, products } from "@/data/products";
 import { AnnouncementBanner } from "@/components/home/AnnouncementBanner";
+import { HeroSlider } from "@/components/home/HeroSlider";
 import { CategoryCard } from "@/components/home/CategoryCard";
 import { ProductCarousel } from "@/components/home/ProductCarousel";
+import { ProductionShowcase } from "@/components/home/ProductionShowcase";
 import { BenefitBadge } from "@/components/home/BenefitBadge";
 import { PartnerLogos } from "@/components/home/PartnerLogos";
 import { WhatsAppButton } from "@/components/home/WhatsAppButton";
@@ -31,6 +33,9 @@ export default function Home() {
       {/* Announcement Banner */}
       <AnnouncementBanner />
 
+      {/* Hero Slider */}
+      <HeroSlider />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-red-50 py-20 md:py-32">
         {/* Texture Overlay */}
@@ -39,7 +44,7 @@ export default function Home() {
         {/* Subtle Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-amber-100/30 via-transparent to-red-100/20"></div>
 
-        {/* Background Product Images with Parallax Effect */}
+        {/* Enhanced Background Product Images with Parallax Effect */}
         <div className="absolute inset-0 pointer-events-none" style={{ perspective: '1000px' }}>
           {/* Saffron threads - top right - moves slower (closer layer) */}
           <div className="absolute top-10 right-10 w-32 h-32 md:w-48 md:h-48 opacity-15 blur-sm parallax-layer-1" style={{ transform: 'translate3d(0, 0, -50px) scale(1.05)', willChange: 'transform' }}>
@@ -71,15 +76,59 @@ export default function Home() {
               className="object-cover rounded-full w-full h-full"
             />
           </div>
+
+          {/* Additional Enhanced Images */}
+          {/* Dry Fruits - top left - medium depth */}
+          <div className="absolute top-32 left-20 w-36 h-36 md:w-44 md:h-44 opacity-12 blur-sm parallax-layer-1" style={{ transform: 'translate3d(0, 0, -75px) scale(1.08)', willChange: 'transform' }}>
+            <Image
+              src="https://images.meesho.com/images/products/581277662/bynx5_512.avif"
+              alt="Dry Fruits"
+              width={512}
+              height={512}
+              className="object-cover rounded-full w-full h-full"
+            />
+          </div>
+          {/* Almonds - bottom right - close layer */}
+          <div className="absolute bottom-32 right-32 w-30 h-30 md:w-40 md:h-40 opacity-13 blur-sm parallax-layer-2" style={{ transform: 'translate3d(0, 0, -60px) scale(1.06)', willChange: 'transform' }}>
+            <Image
+              src="https://images.meesho.com/images/products/610646788/wuofi_512.avif"
+              alt="Premium Nuts"
+              width={512}
+              height={512}
+              className="object-cover rounded-full w-full h-full"
+            />
+          </div>
+          {/* Spice Mix - middle left - far layer */}
+          <div className="absolute top-[60%] left-[15%] w-24 h-24 md:w-36 md:h-36 opacity-8 blur-md parallax-layer-3" style={{ transform: 'translate3d(0, 0, -120px) scale(1.12)', willChange: 'transform' }}>
+            <Image
+              src="https://images.meesho.com/images/products/612121311/khjw1_512.avif"
+              alt="Spice Mix"
+              width={512}
+              height={512}
+              className="object-cover rounded-full w-full h-full"
+            />
+          </div>
         </div>
 
-        {/* Floating Spice Particles */}
+        {/* Enhanced Floating Spice Particles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Original particles */}
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full opacity-40 animate-float-slow"></div>
           <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full opacity-30 animate-float-medium" style={{ animationDelay: '1s' }}></div>
           <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-amber-500 rounded-full opacity-35 animate-float-fast" style={{ animationDelay: '2s' }}></div>
           <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-yellow-400 rounded-full opacity-40 animate-float-slow" style={{ animationDelay: '0.5s' }}></div>
           <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-amber-300 rounded-full opacity-25 animate-float-medium" style={{ animationDelay: '1.5s' }}></div>
+
+          {/* Enhanced new particles - more variety */}
+          <div className="absolute top-[15%] left-[60%] w-3 h-3 bg-red-400 rounded-full opacity-30 animate-float-slow" style={{ animationDelay: '2.5s' }}></div>
+          <div className="absolute bottom-[30%] right-[15%] w-1.5 h-1.5 bg-orange-400 rounded-full opacity-35 animate-float-medium" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-[45%] left-[15%] w-2 h-2 bg-yellow-500 rounded-full opacity-28 animate-float-fast" style={{ animationDelay: '0.8s' }}></div>
+          <div className="absolute bottom-[15%] right-[40%] w-2.5 h-2.5 bg-amber-600 rounded-full opacity-32 animate-float-slow" style={{ animationDelay: '1.8s' }}></div>
+          <div className="absolute top-[55%] right-[25%] w-1 h-1 bg-red-300 rounded-full opacity-38 animate-float-medium" style={{ animationDelay: '2.2s' }}></div>
+          <div className="absolute bottom-[45%] left-[45%] w-2 h-2 bg-orange-300 rounded-full opacity-30 animate-float-fast" style={{ animationDelay: '1.2s' }}></div>
+          <div className="absolute top-[80%] left-[70%] w-1.5 h-1.5 bg-amber-400 rounded-full opacity-35 animate-float-slow" style={{ animationDelay: '3.5s' }}></div>
+          <div className="absolute top-[25%] right-[50%] w-2.5 h-2.5 bg-yellow-400 rounded-full opacity-28 animate-float-medium" style={{ animationDelay: '0.3s' }}></div>
+          <div className="absolute bottom-[60%] left-[80%] w-1 h-1 bg-red-500 rounded-full opacity-40 animate-float-fast" style={{ animationDelay: '2.8s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -122,7 +171,8 @@ export default function Home() {
                     <div className="relative group overflow-hidden rounded-xl aspect-square">
                       <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-amber-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
                       <Image
-                        src="https://images.meesho.com/images/products/438857914/1oyms_512.webp"
+                        // src="https://images.meesho.com/images/products/438857914/1oyms_512.webp"
+                        src="https://images.meesho.com/images/products/612121311/khjw1_512.avif?width=512"
                         alt="Premium Saffron"
                         width={512}
                         height={512}
@@ -137,7 +187,7 @@ export default function Home() {
                     <div className="relative group overflow-hidden rounded-xl aspect-square mt-6">
                       <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
                       <Image
-                        src="https://images.meesho.com/images/products/464660549/1znqc_512.webp"
+                        src="https://images.meesho.com/images/products/603463542/syhgj_512.avif?width=512"
                         alt="Natural Jaggery"
                         width={512}
                         height={512}
@@ -152,7 +202,7 @@ export default function Home() {
                     <div className="relative group overflow-hidden rounded-xl aspect-square -mt-6">
                       <div className="absolute inset-0 bg-gradient-to-br from-green-600 to-amber-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
                       <Image
-                        src="https://images.meesho.com/images/products/435066399/nbw6h_512.webp"
+                        src="https://images.meesho.com/images/products/610646788/wuofi_512.avif?width=512"
                         alt="Premium Chia Seeds"
                         width={512}
                         height={512}
@@ -167,7 +217,7 @@ export default function Home() {
                     <div className="relative group overflow-hidden rounded-xl aspect-square">
                       <div className="absolute inset-0 bg-gradient-to-br from-yellow-600 to-orange-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
                       <Image
-                        src="https://images.meesho.com/images/products/457621881/ixrmn_512.webp"
+                        src="https://images.meesho.com/images/products/581277662/bynx5_512.avif?width=512"
                         alt="Dry Fruits Powder"
                         width={512}
                         height={512}
@@ -324,7 +374,7 @@ export default function Home() {
                       {/* Saffron - Top Left */}
                       <div className="relative group rounded-2xl overflow-hidden shadow-lg aspect-square">
                         <Image
-                          src="https://images.meesho.com/images/products/438857914/1oyms_512.webp"
+                          src="https://images.meesho.com/images/products/612121311/khjw1_512.avif?width=512"
                           alt="Premium Saffron"
                           width={512}
                           height={512}
@@ -338,7 +388,7 @@ export default function Home() {
                       {/* Jaggery - Top Right */}
                       <div className="relative group rounded-2xl overflow-hidden shadow-lg aspect-square">
                         <Image
-                          src="https://images.meesho.com/images/products/464660549/1znqc_512.webp"
+                          src="https://images.meesho.com/images/products/603463542/syhgj_512.avif?width=512"
                           alt="Natural Jaggery"
                           width={512}
                           height={512}
@@ -352,7 +402,7 @@ export default function Home() {
                       {/* Chia Seeds - Bottom Left */}
                       <div className="relative group rounded-2xl overflow-hidden shadow-lg aspect-square">
                         <Image
-                          src="https://images.meesho.com/images/products/435066399/nbw6h_512.webp"
+                          src="https://images.meesho.com/images/products/610646788/wuofi_512.avif?width=512"
                           alt="Chia Seeds"
                           width={512}
                           height={512}
@@ -366,7 +416,7 @@ export default function Home() {
                       {/* Dry Fruits - Bottom Right */}
                       <div className="relative group rounded-2xl overflow-hidden shadow-lg aspect-square">
                         <Image
-                          src="https://images.meesho.com/images/products/457621881/ixrmn_512.webp"
+                          src="https://images.meesho.com/images/products/581277662/bynx5_512.avif?width=512"
                           alt="Dry Fruits"
                           width={512}
                           height={512}
@@ -429,7 +479,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 max-w-4xl mx-auto">
@@ -471,6 +521,16 @@ export default function Home() {
               title="Enhances Immunity"
             />
           </div>
+        </div>
+      </section> */}
+
+      {/* Production Process Showcase Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 via-white to-red-50 relative overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNi0yLjY4NiA2LTYtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYgMi42ODYgNiA2IDZ6TTEyIDM2YzAtMy4zMTQgMi42ODYtNiA2LTZzNi0yLjY4NiA2LTYtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYgMi42ODYgNiA2IDZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+
+        <div className="relative z-10">
+          <ProductionShowcase />
         </div>
       </section>
 

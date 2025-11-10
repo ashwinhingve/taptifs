@@ -20,6 +20,7 @@ export interface ProductData {
   tags: string[];
   average_rating: number;
   review_count: number;
+  amazonUrl?: string;
 }
 
 export const products: ProductData[] = [
@@ -42,7 +43,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/610646788/wuofi_512.webp"],
     tags: ["chia seeds", "superfood", "healthy", "vegan", "protein"],
     average_rating: 4.5,
-    review_count: 23
+    review_count: 23,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "2",
@@ -63,7 +65,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/603502006/ppnkj_512.webp"],
     tags: ["jaggery", "natural sweetener", "organic", "healthy"],
     average_rating: 4.7,
-    review_count: 45
+    review_count: 45,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "3",
@@ -84,7 +87,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/603463542/syhgj_512.webp"],
     tags: ["jaggery", "cubes", "natural", "healthy"],
     average_rating: 4.6,
-    review_count: 31
+    review_count: 31,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "4",
@@ -105,7 +109,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/580624828/ot9ue_512.webp"],
     tags: ["rajma", "kidney beans", "pulses", "protein", "dal"],
     average_rating: 4.8,
-    review_count: 52
+    review_count: 52,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "5",
@@ -126,7 +131,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/610662805/0hh8f_512.webp"],
     tags: ["dry fruits", "powder", "healthy", "vitamins", "nutrition"],
     average_rating: 4.4,
-    review_count: 18
+    review_count: 18,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "6",
@@ -147,7 +153,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/612121311/khjw1_512.webp"],
     tags: ["saffron", "kesar", "premium", "kashmiri", "spice"],
     average_rating: 4.9,
-    review_count: 67
+    review_count: 67,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "7",
@@ -168,7 +175,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/581277662/bynx5_512.webp"],
     tags: ["dry fruits", "premium", "nutrition", "healthy"],
     average_rating: 4.5,
-    review_count: 22
+    review_count: 22,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "8",
@@ -189,7 +197,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/565715264/dus29_512.webp"],
     tags: ["papad", "snacks", "crispy", "traditional"],
     average_rating: 4.3,
-    review_count: 15
+    review_count: 15,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "9",
@@ -210,7 +219,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/604759385/sca9q_512.webp"],
     tags: ["chia seeds", "organic", "superfood", "protein"],
     average_rating: 4.6,
-    review_count: 28
+    review_count: 28,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "10",
@@ -231,7 +241,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/603484448/oguiy_512.webp"],
     tags: ["jaggery", "small pack", "natural"],
     average_rating: 4.5,
-    review_count: 19
+    review_count: 19,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "11",
@@ -252,7 +263,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/612629980/reh7o_512.webp"],
     tags: ["saffron", "royal", "premium", "kashmiri"],
     average_rating: 5.0,
-    review_count: 42
+    review_count: 42,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "12",
@@ -273,7 +285,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/621542930/qwdzn_512.webp"],
     tags: ["gond katira", "ayurvedic", "natural", "health"],
     average_rating: 4.4,
-    review_count: 14
+    review_count: 14,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "13",
@@ -294,7 +307,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/572068187/kbdkk_512.webp"],
     tags: ["jaggery", "powder", "chemical free", "healthy"],
     average_rating: 4.5,
-    review_count: 21
+    review_count: 21,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "14",
@@ -315,7 +329,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/572102536/kshyd_512.webp"],
     tags: ["tulsi", "ayurvedic", "immunity", "herbal"],
     average_rating: 4.7,
-    review_count: 33
+    review_count: 33,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "15",
@@ -336,7 +351,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/572085452/cwxnk_512.webp"],
     tags: ["neem", "tulsi", "ayurvedic", "skincare"],
     average_rating: 4.6,
-    review_count: 27
+    review_count: 27,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "16",
@@ -357,7 +373,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/581460345/dk5es_512.webp"],
     tags: ["moringa", "organic", "superfood", "immunity"],
     average_rating: 4.5,
-    review_count: 20
+    review_count: 20,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "17",
@@ -378,7 +395,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/580629150/l3xpe_512.webp"],
     tags: ["rajma", "pulses", "protein", "natural"],
     average_rating: 4.7,
-    review_count: 38
+    review_count: 38,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "18",
@@ -399,7 +417,8 @@ export const products: ProductData[] = [
     images: ["https://images.meesho.com/images/products/591372768/bjuqt_512.webp"],
     tags: ["saffron", "threads", "kashmiri", "premium"],
     average_rating: 4.8,
-    review_count: 51
+    review_count: 51,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   }
 ];
 

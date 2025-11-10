@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/useCartStore";
 import type { ProductData } from "@/data/products";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ExternalLink } from "lucide-react";
 
 interface ProductCardProps {
   product: ProductData;
@@ -15,8 +16,13 @@ interface ProductCardProps {
 export function ProductCard({ product, showSaleBadge = false }: ProductCardProps) {
   const [isAdding, setIsAdding] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const addItem = useCartStore((state) => state.addItem);
   const itemQuantity = useCartStore((state) => state.getItemQuantity(product.id));
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -108,8 +114,9 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
             </span>
           </div>
 
-          {/* Price & Add to Cart */}
-          <div className="flex items-center justify-between mt-auto">
+          {/* Price & Buttons */}
+          <div className="flex flex-col gap-3 mt-auto">
+            {/* Price */}
             <div className="flex flex-col">
               <span className="text-xl font-bold text-primary">
                 ₹{product.price}
@@ -120,20 +127,39 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
                 </span>
               )}
             </div>
-            <Button
-              size="sm"
-              onClick={handleAddToCart}
-              disabled={isAdding}
-              className="relative"
-            >
-              {isAdding ? (
-                "Added!"
-              ) : itemQuantity > 0 ? (
-                <span>In Cart ({itemQuantity})</span>
-              ) : (
-                "Add to Cart"
+
+            {/* Buttons */}
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                onClick={handleAddToCart}
+                disabled={isAdding}
+                className="flex-1 relative"
+              >
+                {isAdding ? (
+                  "Added!"
+                ) : mounted && itemQuantity > 0 ? (
+                  <span>In Cart ({itemQuantity})</span>
+                ) : (
+                  "Add to Cart"
+                )}
+              </Button>
+
+              {product.amazonUrl && (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(product.amazonUrl, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="flex-1 border-[#FF9900] text-[#FF9900] hover:bg-[#FF9900] hover:text-white transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  Amazon
+                </Button>
               )}
-            </Button>
+            </div>
           </div>
         </div>
       </div>
