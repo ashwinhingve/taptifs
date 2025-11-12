@@ -15,9 +15,22 @@ export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [showMobileFilters, setShowMobileFilters] = useState(false)
 
+  // Get active products only
+  const activeProducts = useMemo(() => products.filter(p => p.is_active), [])
+
+  // Calculate category counts from active products
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    activeProducts.forEach(product => {
+      counts[product.category] = (counts[product.category] || 0) + 1
+    })
+    return counts
+  }, [activeProducts])
+
   // Filter and sort products
   const filteredProducts = useMemo(() => {
-    let filtered = [...products]
+    // Start with active products only
+    let filtered = [...activeProducts]
 
     // Filter by category
     if (selectedCategory !== "all") {
@@ -61,7 +74,7 @@ export default function ProductsPage() {
     }
 
     return filtered
-  }, [selectedCategory, sortBy, priceRange, searchQuery])
+  }, [activeProducts, selectedCategory, sortBy, priceRange, searchQuery])
 
   const resetFilters = () => {
     setSelectedCategory("all")
@@ -101,7 +114,7 @@ export default function ProductsPage() {
           >
             <div className="flex justify-between items-center">
               <span>All Products</span>
-              <span className="text-sm opacity-80">({products.length})</span>
+              <span className="text-sm opacity-80">({activeProducts.length})</span>
             </div>
           </button>
           {categories.map((category) => (
@@ -116,7 +129,7 @@ export default function ProductsPage() {
             >
               <div className="flex justify-between items-center">
                 <span>{category.name}</span>
-                <span className="text-sm opacity-80">({category.count})</span>
+                <span className="text-sm opacity-80">({categoryCounts[category.name] || 0})</span>
               </div>
             </button>
           ))}

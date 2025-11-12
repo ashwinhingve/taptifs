@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(cd /mnt/d/Do Not Open/project/tapti/taptifs && npx tailwindcss:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm install:*)",
+      "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm run build:*)"
     ],
     "deny": [],
     "ask": []

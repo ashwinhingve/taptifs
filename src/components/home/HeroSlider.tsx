@@ -22,6 +22,17 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
+    image: "/images/home.jpg",
+    title: "Welcome to Taptifs",
+    subtitle: "Premium Quality, Naturally Pure",
+    description: "Discover our complete range of authentic Indian spices, organic oils, pure ghee, premium teas, and natural sweeteners - all crafted with tradition and care",
+    ctaText: "Explore All Products",
+    ctaLink: "/products",
+    ctaSecondaryText: "Shop Now",
+    ctaSecondaryLink: "/products",
+  },
+  {
+    id: 2,
     image: "https://images.pexels.com/photos/3368291/pexels-photo-3368291.jpeg",
     // image: "https://images.pexels.com/photos/4198936/pexels-photo-4198936.jpeg?auto=compress&cs=tinysrgb&w=1920",
     title: "Premium Kashmiri Saffron",
@@ -33,7 +44,7 @@ const slides: Slide[] = [
     ctaSecondaryLink: "/products",
   },
   {
-    id: 2,
+    id: 3,
     image: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=1920",
     title: "Natural Jaggery & Sweeteners",
     subtitle: "Pure Traditional Sweetness",
@@ -44,7 +55,7 @@ const slides: Slide[] = [
     ctaSecondaryLink: "/products",
   },
   {
-    id: 3,
+    id: 4,
     image: "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=1920",
     title: "Premium Dry Fruits & Seeds",
     subtitle: "Nutrition Meets Taste",
@@ -55,7 +66,7 @@ const slides: Slide[] = [
     ctaSecondaryLink: "/products",
   },
   {
-    id: 4,
+    id: 5,
     image: "https://images.pexels.com/photos/531446/pexels-photo-531446.jpeg?auto=compress&cs=tinysrgb&w=1920",
     title: "Authentic Indian Spices",
     subtitle: "From Our Kitchen to Yours",
@@ -66,7 +77,7 @@ const slides: Slide[] = [
     ctaSecondaryLink: "/products",
   },
   {
-    id: 5,
+    id: 6,
     image: "https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg?auto=compress&cs=tinysrgb&w=1920",
     title: "Superfood Trail Mixes",
     subtitle: "Energy in Every Bite",

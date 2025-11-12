@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "./Navigation";
@@ -20,8 +21,20 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-primary">TAPTIFS</span>
+        <Link href="/" className="flex items-center space-x-3">
+          <div className="relative h-10 w-10 md:h-12 md:w-12">
+            <Image
+              src="/images/logo.jpg"
+              alt="Taptifs Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold text-primary leading-tight">Tapti Food & Spices</span>
+            <span className="text-xs text-muted-foreground hidden md:block">शुद्धता का वादा</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

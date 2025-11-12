@@ -14,6 +14,7 @@ import { Select } from "@/components/ui/select"
 import { PhoneInput } from "@/components/ui/phone-input"
 import { FormField } from "@/components/ui/form-field"
 import { Button } from "@/components/ui/button"
+import { products } from "@/data/products"
 import {
   Package,
   TruckIcon,
@@ -22,17 +23,19 @@ import {
   Building2,
   Users,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  FileText
 } from "lucide-react"
 
 // Form validation schema
 const wholesaleSchema = z.object({
-  businessName: z.string().min(2, "Business name is required"),
-  contactName: z.string().min(2, "Contact name is required"),
-  email: z.string().email("Invalid email address"),
+  firstName: z.string().min(2, "First name is required"),
+  lastName: z.string().optional(),
+  email: z.string().email("Invalid email address").optional().or(z.literal("")),
   phone: z.string().min(10, "Please enter a valid phone number"),
-  productInterest: z.string().min(1, "Please select a product category"),
-  estimatedQuantity: z.string().min(1, "Please select estimated quantity"),
+  productInterest: z.string().optional(),
+  productList: z.string().optional(),
+  estimatedQuantity: z.string().optional(),
   message: z.string().optional(),
 })
 
@@ -56,19 +59,26 @@ export default function WholesalePage() {
     setSubmitStatus(null)
 
     try {
+      console.log("Submitting wholesale inquiry:", data)
       const response = await fetch("/api/wholesale", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       })
 
+      const result = await response.json()
+      console.log("API Response:", result)
+
       if (response.ok) {
+        console.log("✓ Wholesale inquiry submitted successfully")
         setSubmitStatus("success")
         reset()
       } else {
+        console.error("❌ Error submitting wholesale inquiry:", result)
         setSubmitStatus("error")
       }
     } catch (error) {
+      console.error("❌ Network error:", error)
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
@@ -217,7 +227,7 @@ export default function WholesalePage() {
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <CountUpStat
               end={500}
               suffix="+"
@@ -235,6 +245,12 @@ export default function WholesalePage() {
               suffix="+"
               label="Cities Covered"
               icon={<TruckIcon className="w-12 h-12" />}
+            />
+            <CountUpStat
+              end={1200}
+              suffix="+"
+              label="Farmers"
+              icon={<Users className="w-12 h-12" />}
             />
             <CountUpStat
               end={98}
@@ -280,55 +296,69 @@ export default function WholesalePage() {
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField label="Business Name" required error={errors.businessName?.message}>
-                    <Input {...register("businessName")} placeholder="Your Business Name" error={errors.businessName?.message} />
+                  <FormField label="First Name" required error={errors.firstName?.message}>
+                    <Input {...register("firstName")} placeholder="Contact First Name" error={errors.firstName?.message} />
                   </FormField>
 
-                  <FormField label="Contact Person" required error={errors.contactName?.message}>
-                    <Input {...register("contactName")} placeholder="Your Name" error={errors.contactName?.message} />
+                  <FormField label="Last Name (Optional)" error={errors.lastName?.message}>
+                    <Input {...register("lastName")} placeholder="Contact Last Name" error={errors.lastName?.message} />
                   </FormField>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField label="Email Address" required error={errors.email?.message}>
-                    <Input {...register("email")} type="email" placeholder="your@email.com" error={errors.email?.message} />
-                  </FormField>
-
                   <FormField label="Phone Number" required error={errors.phone?.message}>
                     <PhoneInput {...register("phone")} placeholder="+91 XXXXX XXXXX" error={errors.phone?.message} />
                   </FormField>
+
+                  <FormField label="Email Address (Optional)" error={errors.email?.message}>
+                    <Input {...register("email")} type="email" placeholder="your@email.com" error={errors.email?.message} />
+                  </FormField>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField label="Product Interest" required error={errors.productInterest?.message}>
+                  <FormField label="Product Interest (Optional)" error={errors.productInterest?.message}>
                     <Select
                       {...register("productInterest")}
                       error={errors.productInterest?.message}
                       options={[
                         { value: "", label: "Select a category" },
-                        { value: "seeds", label: "Seeds & Nuts" },
-                        { value: "spices", label: "Spices & Herbs" },
-                        { value: "superfoods", label: "Superfoods" },
-                        { value: "dried-fruits", label: "Dried Fruits" },
+                        { value: "Spices", label: "Spices" },
+                        { value: "Spices & Masalas", label: "Spices & Masalas" },
+                        { value: "Sweeteners", label: "Sweeteners" },
+                        { value: "Superfoods", label: "Superfoods" },
+                        { value: "Pulses & Grains", label: "Pulses & Grains" },
+                        { value: "Dry Fruits", label: "Dry Fruits" },
+                        { value: "Ayurvedic", label: "Ayurvedic" },
+                        { value: "Specialty Powders", label: "Specialty Powders" },
+                        { value: "Tea & Beverages", label: "Tea & Beverages" },
+                        { value: "Cooking Oils & Ghee", label: "Cooking Oils & Ghee" },
                         { value: "all", label: "All Products" },
                       ]}
                     />
                   </FormField>
 
-                  <FormField label="Estimated Quantity" required error={errors.estimatedQuantity?.message}>
-                    <Select
+                  <FormField label="Estimated Quantity (Optional)" error={errors.estimatedQuantity?.message}>
+                    <Input
                       {...register("estimatedQuantity")}
+                      placeholder="e.g., 100 units, 500kg, etc."
                       error={errors.estimatedQuantity?.message}
-                      options={[
-                        { value: "", label: "Select quantity range" },
-                        { value: "50-100", label: "50-100 units" },
-                        { value: "100-500", label: "100-500 units" },
-                        { value: "500-1000", label: "500-1000 units" },
-                        { value: "1000+", label: "1000+ units" },
-                      ]}
                     />
                   </FormField>
                 </div>
+
+                <FormField label="Product List" error={errors.productList?.message}>
+                  <Select
+                    {...register("productList")}
+                    error={errors.productList?.message}
+                    options={[
+                      { value: "", label: "Select a product" },
+                      ...products.map(product => ({
+                        value: product.name,
+                        label: `${product.name} (${product.weight}${product.unit})`
+                      }))
+                    ]}
+                  />
+                </FormField>
 
                 <FormField label="Additional Message (Optional)">
                   <Textarea

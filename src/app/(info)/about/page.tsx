@@ -6,6 +6,7 @@ import { CountUpStat } from "@/components/shared/CountUpStat"
 import { Timeline } from "@/components/shared/Timeline"
 import { TeamMemberCard } from "@/components/shared/TeamMemberCard"
 import { CertificationBadge } from "@/components/shared/CertificationBadge"
+import { ClientsPartners } from "@/components/shared/ClientsPartners"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import {
@@ -65,58 +66,66 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Rajesh Kumar",
-      role: "Founder & CEO",
+      name: "Mr. Akhilesh Deshmukh",
+      role: "Founder & Proprietor",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      bio: "Passionate about bringing authentic superfoods to every household with 15+ years in organic food industry.",
+      bio: "B.Com (Economics), MBA (Business Analyst). Expertise in finance, business strategy, supply chain & quality management. Leads the overall growth, innovation, and vision of the company.",
       linkedin: "https://linkedin.com",
-      email: "rajesh@taptifs.com",
+      email: "taptiagrofood@gmail.com",
     },
     {
-      name: "Priya Sharma",
-      role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      bio: "Expert in supply chain management with a focus on quality control and sustainable sourcing practices.",
+      name: "Mr. Bhavesh Deshmukh",
+      role: "Product Partnership & Marketing Head",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      bio: "B.Com, LLB. Expertise in business partnerships, sales & offline distribution. Handles product collaborations, retail sales & marketing strategies.",
       linkedin: "https://linkedin.com",
-      email: "priya@taptifs.com",
+      email: "taptiagrofood@gmail.com",
     },
     {
-      name: "Amit Patel",
-      role: "Chief Product Officer",
+      name: "Mr. Ayush Deshmukh",
+      role: "Co-Founder & Procurement Head",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-      bio: "Food scientist dedicated to creating innovative superfood products that combine nutrition with great taste.",
+      bio: "B.Sc. Agriculture. Expertise in farming, agri-markets, vendor management. Manages raw material procurement, farmer connect & product quality.",
       linkedin: "https://linkedin.com",
-      email: "amit@taptifs.com",
+      email: "taptiagrofood@gmail.com",
     },
     {
-      name: "Sneha Reddy",
-      role: "Marketing Director",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      bio: "Building brands that resonate with health-conscious consumers through authentic storytelling.",
+      name: "Mr. Dipanshu Deshmukh",
+      role: "Sales & Market Expansion Head",
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
+      bio: "B.Sc. Agriculture. Expertise in sales, customer relations, market expansion. Focuses on retail growth, distribution channels & regional markets.",
       linkedin: "https://linkedin.com",
-      email: "sneha@taptifs.com",
+      email: "taptiagrofood@gmail.com",
+    },
+    {
+      name: "Ms. Pravina Sakre",
+      role: "Social Media & Creative Marketing Lead",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+      bio: "B.Tech. Expertise in social media, branding, packaging design & eCommerce. Drives online presence, digital campaigns & creative strategies.",
+      linkedin: "https://linkedin.com",
+      email: "taptiagrofood@gmail.com",
     },
   ]
 
   const certifications = [
     {
-      name: "ISO 22000",
-      description: "International food safety management certification ensuring the highest safety standards.",
-      icon: <Shield className="w-12 h-12 text-white" />,
-    },
-    {
-      name: "FSSAI Approved",
-      description: "Licensed by Food Safety and Standards Authority of India for quality assurance.",
+      name: "FSSAI Licensed",
+      description: "Licensed by Food Safety and Standards Authority of India (License No. 21423150001550) for quality assurance and food safety.",
       icon: <CheckCircle className="w-12 h-12 text-white" />,
     },
     {
+      name: "GST Registered",
+      description: "Registered under GST (No. 23EDYPD4924F1ZF) ensuring transparency and compliance with Indian tax regulations.",
+      icon: <Shield className="w-12 h-12 text-white" />,
+    },
+    {
       name: "Organic Certified",
-      description: "USDA and India Organic certified products ensuring 100% organic authenticity.",
+      description: "Working with certified organic suppliers like Almighty Organics Pvt. Ltd. to ensure 100% organic authenticity.",
       icon: <Leaf className="w-12 h-12 text-white" />,
     },
     {
-      name: "GMP Certified",
-      description: "Good Manufacturing Practices certification for consistent quality production.",
+      name: "Quality Assured",
+      description: "Hygienic processing and premium packaging with certified organic raw materials from trusted partners.",
       icon: <Package className="w-12 h-12 text-white" />,
     },
   ]
@@ -134,8 +143,9 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              Transforming lives through premium superfoods, one healthy choice at a time.
-              Discover the journey that brought authentic nutrition to your doorstep.
+              A trusted food brand committed to delivering pure, authentic, and high-quality products.
+              Sourced directly from our farms and trusted farmers, hygienically packed, and delivered with care.
+              Now available on Amazon, Flipkart, Meesho, and expanding to retail stores across India.
             </p>
           </AnimatedSection>
         </div>
@@ -152,8 +162,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To make authentic, high-quality superfoods accessible to everyone, empowering people to lead healthier lives through
-                  natural nutrition. We believe that everyone deserves access to pure, organic products that nourish both body and soul.
+                  To deliver pure, natural, and healthy food products to every home—combining taste, health, and authenticity. We source directly from our own farms and trusted farmers, ensuring 100% adulteration-free products that bring traditional taste with modern trust.
                 </p>
               </div>
             </AnimatedSection>
@@ -165,8 +174,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Vision</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To become India's most trusted superfood brand, recognized globally for our commitment to quality, sustainability,
-                  and innovation. We envision a world where healthy eating is simple, affordable, and delicious for all.
+                  "The Taste of Purity" - To become a household name synonymous with pure, authentic, and high-quality food products. We are committed to expanding from online marketplaces to retail stores, making premium quality food accessible to every Indian household.
                 </p>
               </div>
             </AnimatedSection>
@@ -329,7 +337,7 @@ export default function AboutPage() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {teamMembers.map((member, index) => (
               <AnimatedSection key={index} delay={index * 0.1} direction="up">
                 <TeamMemberCard member={member} />
@@ -339,8 +347,11 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Clients & Partners */}
+      <ClientsPartners />
+
       {/* Certifications */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-2 text-gray-800">

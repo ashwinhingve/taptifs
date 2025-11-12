@@ -26,10 +26,11 @@ export async function POST(request: NextRequest) {
       },
     })
 
-    // Email to admin
+    // Email to admin - ALWAYS send to info@taptifs.com
+    const adminEmail = process.env.ADMIN_EMAIL || "info@taptifs.com"
     const adminMailOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
-      to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
+      to: adminEmail,
       subject: `Contact Form: ${subject || "New Message"}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -74,20 +75,52 @@ export async function POST(request: NextRequest) {
 
     // Send emails (only if SMTP is configured)
     if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-      await transporter.sendMail(adminMailOptions)
-      await transporter.sendMail(userMailOptions)
+      try {
+        // Always send to admin (info@taptifs.com)
+        console.log(`Sending contact form to: ${adminEmail}`)
+        await transporter.sendMail(adminMailOptions)
+        console.log(`✓ Contact form sent successfully to ${adminEmail}`)
+
+        // Send confirmation email to user
+        await transporter.sendMail(userMailOptions)
+        console.log(`✓ Confirmation email sent to customer: ${email}`)
+      } catch (emailError) {
+        console.error("Error sending email:", emailError)
+        throw emailError
+      }
     } else {
-      console.log("SMTP not configured. Email content:", { name, email, phone, subject, message })
+      console.error("⚠️  SMTP NOT CONFIGURED - Emails cannot be sent!")
+      console.error("⚠️  Please configure SMTP settings in .env.local file:")
+      console.error("    SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS")
+      console.log("Contact form data (NOT SENT):", {
+        to: adminEmail,
+        from: name,
+        email,
+        phone,
+        subject,
+        message
+      })
+      // Don't throw error - still return success to user but log the issue
     }
 
     return NextResponse.json(
       { message: "Message sent successfully" },
       { status: 200 }
     )
-  } catch (error) {
-    console.error("Contact form error:", error)
+  } catch (error: any) {
+    console.error("❌ Contact form error:", error)
+    console.error("Error details:", {
+      message: error?.message,
+      code: error?.code,
+      response: error?.response
+    })
+
     return NextResponse.json(
-      { error: "Failed to send message" },
+      {
+        error: "Failed to send message",
+        details: error?.message || "Unknown error",
+        code: error?.code
+      },
       { status: 500 }
     )
   }

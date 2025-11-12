@@ -4,9 +4,13 @@ import bcrypt from 'bcryptjs';
 export interface IUser extends Document {
   _id: mongoose.Types.ObjectId;
   email: string;
-  password: string;
-  fullName: string;
+  password?: string;
+  fullName?: string;
+  name?: string;
   phoneNumber?: string;
+  image?: string;
+  provider?: 'google' | 'credentials';
+  googleId?: string;
   role: 'customer' | 'admin' | 'wholesale_buyer';
   emailVerified: boolean;
   createdAt: Date;
@@ -25,17 +29,33 @@ const UserSchema = new Schema<IUser>(
     },
     password: {
       type: String,
-      required: true,
       minlength: 6,
+      select: false, // Don't return password by default
     },
     fullName: {
       type: String,
-      required: true,
+      trim: true,
+    },
+    name: {
+      type: String,
       trim: true,
     },
     phoneNumber: {
       type: String,
       trim: true,
+    },
+    image: {
+      type: String,
+    },
+    provider: {
+      type: String,
+      enum: ['google', 'credentials'],
+      default: 'credentials',
+    },
+    googleId: {
+      type: String,
+      sparse: true,
+      unique: true,
     },
     role: {
       type: String,
@@ -55,25 +75,38 @@ const UserSchema = new Schema<IUser>(
 // Index for email lookups
 UserSchema.index({ email: 1 });
 
-// Hash password before saving
+// Hash password before saving (only for credentials provider)
 UserSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) {
+  // Skip if password is not modified or doesn't exist (Google OAuth users)
+  if (!this.password || !this.isModified('password')) {
     return next();
   }
 
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
+
+    // Set email as verified for Google OAuth users
+    if (this.provider === 'google') {
+      this.emailVerified = true;
+    }
+
     next();
   } catch (error: any) {
     next(error);
   }
 });
 
-// Method to compare password
+// Index for Google ID lookups
+UserSchema.index({ googleId: 1 });
+
+// Method to compare password (only for credentials provider)
 UserSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
+  if (!this.password) {
+    return false;
+  }
   return bcrypt.compare(candidatePassword, this.password);
 };
 
