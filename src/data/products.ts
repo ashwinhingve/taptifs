@@ -44,7 +44,7 @@ export const products: ProductData[] = [
     tags: ["chia seeds", "superfood", "healthy", "vegan", "protein"],
     average_rating: 4.5,
     review_count: 23,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Superfood-Digestion-Management-Nutrient-Rich-Smoothies/dp/B0FSKMQ43G/?_encoding=UTF8&m=AP7UIG7ND66L&pd_rd_w=YxY5F&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_p=da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_r=QSKYYM6AFYVWSHD5CV0N&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&ref_=lscx_w_ssf_na&th=1"
   },
   {
     id: "2",
@@ -88,7 +88,7 @@ export const products: ProductData[] = [
     tags: ["jaggery", "cubes", "natural", "healthy"],
     average_rating: 4.6,
     review_count: 31,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Organic-Jaggery-Natural-Alternative-Minerals/dp/B0FNN97HMR/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
   },
   {
     id: "4",
@@ -132,7 +132,7 @@ export const products: ProductData[] = [
     tags: ["dry fruits", "powder", "healthy", "vitamins", "nutrition"],
     average_rating: 4.4,
     review_count: 18,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Tapti-Nutrient-Pistachios-Boosting-Superfood/dp/B0FNN6M4HJ/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
   },
   {
     id: "6",
@@ -154,7 +154,7 @@ export const products: ProductData[] = [
     tags: ["saffron", "kesar", "premium", "kashmiri", "spice"],
     average_rating: 4.9,
     review_count: 67,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Taptifs-Premium-Kashmiri-Saffron-Traditional/dp/B0FV3CPS4P/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_p=da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_r=QSKYYM6AFYVWSHD5CV0N&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&ref_=lscx_w_ssf_na"
   },
   {
     id: "7",
@@ -176,7 +176,7 @@ export const products: ProductData[] = [
     tags: ["dry fruits", "premium", "nutrition", "healthy"],
     average_rating: 4.5,
     review_count: 22,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Taptifs-Fruits-Mixture-Powder-Preservative-Free/dp/B0FSKV4YXC/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_p=da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_r=QSKYYM6AFYVWSHD5CV0N&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&ref_=lscx_w_ssf_na"
   },
   {
     id: "8",
@@ -198,7 +198,7 @@ export const products: ProductData[] = [
     tags: ["papad", "snacks", "crispy", "traditional"],
     average_rating: 4.3,
     review_count: 15,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Gehu-Ke-Atta-Papad-Traditional/dp/B0FR9JMGWC/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
   },
   {
     id: "9",
@@ -286,7 +286,7 @@ export const products: ProductData[] = [
     tags: ["gond katira", "ayurvedic", "natural", "health"],
     average_rating: 4.4,
     review_count: 14,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Taptifs-Premium-Gond-Katira-Preservative-Free/dp/B0FV8DZLKZ/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_p=da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_r=QSKYYM6AFYVWSHD5CV0N&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&ref_=lscx_w_ssf_na"
   },
   {
     id: "13",
@@ -308,7 +308,7 @@ export const products: ProductData[] = [
     tags: ["jaggery", "powder", "chemical free", "healthy"],
     average_rating: 4.5,
     review_count: 21,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Taptifs-Jaggery-Powder-Preservative-Free-Sweetener/dp/B0FSKRWNXV/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
   },
   {
     id: "14",
@@ -352,7 +352,7 @@ export const products: ProductData[] = [
     tags: ["neem", "tulsi", "ayurvedic", "skincare"],
     average_rating: 4.6,
     review_count: 27,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Supports-Immunity-Promotes-Ayurvedic-Supplement/dp/B0FV7YP4XN/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_p=da911696-31a7-479c-9922-299ce8aee4d0&pf_rd_r=QSKYYM6AFYVWSHD5CV0N&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&ref_=lscx_w_ssf_na"
   },
   {
     id: "16",
@@ -374,7 +374,7 @@ export const products: ProductData[] = [
     tags: ["moringa", "organic", "superfood", "immunity"],
     average_rating: 4.5,
     review_count: 20,
-    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
+    amazonUrl: "https://www.amazon.in/Nutrients-Digestion-Lifestyle-Superfood-Smoothies/dp/B0FSKCX9V6/?_encoding=UTF8&m=AP7UIG7ND66L&psc=1&pd_rd_w=YxY5F&pd_rd_wg=r0N2g&pd_rd_r=0c84583b-c61f-4201-bf36-e06f95679031&content-id=amzn1.sym.da911696-31a7-479c-9922-299ce8aee4d0&ref_=lscx_w_ssf_na"
   },
   {
     id: "17",
@@ -439,7 +439,8 @@ export const products: ProductData[] = [
     images: ["/images/p17.jpg"],
     tags: ["mirchi", "red chilli", "chilli powder", "spice", "organic", "hot"],
     average_rating: 4.5,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "20",
@@ -460,7 +461,8 @@ export const products: ProductData[] = [
     images: ["/images/p9.jpg"],
     tags: ["haldi", "turmeric", "curcumin", "organic", "spice", "health"],
     average_rating: 4.7,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "21",
@@ -481,7 +483,8 @@ export const products: ProductData[] = [
     images: ["/images/p8.jpg"],
     tags: ["cumin", "jeera", "spice", "organic", "aromatic", "digestion"],
     average_rating: 4.6,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "22",
@@ -502,7 +505,8 @@ export const products: ProductData[] = [
     images: ["/images/p5.jpg"],
     tags: ["mustard", "rai", "spice", "organic", "pungent", "pickle"],
     average_rating: 4.5,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "23",
@@ -523,7 +527,8 @@ export const products: ProductData[] = [
     images: ["/images/p16.jpg"],
     tags: ["coriander", "dhania", "spice", "organic", "aromatic", "curry"],
     average_rating: 4.6,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "24",
@@ -544,7 +549,8 @@ export const products: ProductData[] = [
     images: ["/images/p7.jpg"],
     tags: ["garam masala", "tadka", "tempering", "spice blend", "organic", "aromatic"],
     average_rating: 4.8,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "25",
@@ -565,7 +571,8 @@ export const products: ProductData[] = [
     images: ["/images/p6.jpg"],
     tags: ["garam masala", "whole spices", "sabut masala", "organic", "biryani", "curry"],
     average_rating: 4.7,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "26",
@@ -586,7 +593,8 @@ export const products: ProductData[] = [
     images: ["/images/p12.jpg"],
     tags: ["garlic", "lahsun", "powder", "organic", "health", "flavor"],
     average_rating: 4.5,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "27",
@@ -607,7 +615,8 @@ export const products: ProductData[] = [
     images: ["/images/p13.jpg"],
     tags: ["onion", "white onion", "powder", "organic", "flavor", "natural"],
     average_rating: 4.4,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "28",
@@ -628,7 +637,8 @@ export const products: ProductData[] = [
     images: ["/images/p10.jpg"],
     tags: ["onion", "red onion", "powder", "organic", "pungent", "curry"],
     average_rating: 4.5,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "29",
@@ -649,7 +659,8 @@ export const products: ProductData[] = [
     images: ["/images/p15.jpg"],
     tags: ["tomato", "powder", "organic", "tangy", "lycopene", "sauce"],
     average_rating: 4.6,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "30",
@@ -670,7 +681,8 @@ export const products: ProductData[] = [
     images: ["/images/p11.jpg"],
     tags: ["ginger", "adrak", "powder", "organic", "health", "digestion"],
     average_rating: 4.7,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "31",
@@ -691,7 +703,8 @@ export const products: ProductData[] = [
     images: ["/images/p23.jpg"],
     tags: ["saffron", "tea", "premium", "kesar", "luxury", "antioxidant"],
     average_rating: 4.9,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "32",
@@ -712,7 +725,8 @@ export const products: ProductData[] = [
     images: ["/images/p23.jpg"],
     tags: ["chai", "jaggery", "saffron", "tea", "healthy", "traditional"],
     average_rating: 4.8,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "33",
@@ -733,7 +747,8 @@ export const products: ProductData[] = [
     images: ["/images/p23.jpg"],
     tags: ["chai", "tea", "patti", "leaves", "traditional", "antioxidant"],
     average_rating: 4.6,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "34",
@@ -754,7 +769,8 @@ export const products: ProductData[] = [
     images: ["/images/p2.jpg"],
     tags: ["peanut oil", "groundnut oil", "cold pressed", "healthy", "cooking oil"],
     average_rating: 4.7,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "35",
@@ -775,7 +791,8 @@ export const products: ProductData[] = [
     images: ["/images/p3.jpg"],
     tags: ["sunflower oil", "cold pressed", "healthy", "cooking oil", "vitamin e"],
     average_rating: 4.6,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "36",
@@ -796,7 +813,8 @@ export const products: ProductData[] = [
     images: ["/images/p19.jpg"],
     tags: ["ghee", "desi ghee", "cow ghee", "pure", "traditional", "healthy"],
     average_rating: 4.9,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   },
   {
     id: "37",
@@ -817,7 +835,8 @@ export const products: ProductData[] = [
     images: ["/images/p4.jpg"],
     tags: ["mustard oil", "sarso oil", "cold pressed", "omega-3", "traditional", "pickle"],
     average_rating: 4.8,
-    review_count: 0
+    review_count: 0,
+    amazonUrl: "https://www.amazon.in/l/27943762031?me=AP7UIG7ND66L"
   }
 ];
 

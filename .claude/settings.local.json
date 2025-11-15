@@ -4,7 +4,9 @@
       "Bash(cd /mnt/d/Do Not Open/project/tapti/taptifs && npx tailwindcss:*)",
       "Bash(cat:*)",
       "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm install:*)",
-      "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm run build:*)"
+      "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm run build:*)",
+      "WebFetch(domain:www.amazon.in)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

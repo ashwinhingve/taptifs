@@ -110,12 +110,12 @@ export default function AboutPage() {
   const certifications = [
     {
       name: "FSSAI Licensed",
-      description: "Licensed by Food Safety and Standards Authority of India (License No. 21423150001550) for quality assurance and food safety.",
+      description: "Licensed by Food Safety and Standards Authority of India (License No. 21425150001179) for quality assurance and food safety.",
       icon: <CheckCircle className="w-12 h-12 text-white" />,
     },
     {
       name: "GST Registered",
-      description: "Registered under GST (No. 23EDYPD4924F1ZF) ensuring transparency and compliance with Indian tax regulations.",
+      description: "Registered under GST (No. 23GGLPD7346M1ZZ) ensuring transparency and compliance with Indian tax regulations.",
       icon: <Shield className="w-12 h-12 text-white" />,
     },
     {

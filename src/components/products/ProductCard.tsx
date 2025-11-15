@@ -37,7 +37,8 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
     : 0;
 
   return (
-    <Link href={`/products/${product.slug}`}>
+    // <Link href={`/products/${product.slug}`}>
+    <Link href={product.amazonUrl || `/products/${product.slug}`}>
       <div className="group bg-card rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
         {/* Product Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">

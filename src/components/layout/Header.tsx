@@ -22,7 +22,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3">
-          <div className="relative h-10 w-10 md:h-12 md:w-12">
+          <div className="relative h-10 w-10 md:h-15 md:w-20">
             <Image
               src="/images/logo.jpg"
               alt="Taptifs Logo"
@@ -31,9 +31,9 @@ export function Header() {
               priority
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col lg:flex-row">
             <span className="text-xl md:text-2xl font-bold text-primary leading-tight">Tapti Food & Spices</span>
-            <span className="text-xs text-muted-foreground hidden md:block">शुद्धता का वादा</span>
+            <span className="text-xs text-muted-foreground hidden md:block md:ml-2 mt-2">शुद्धता का वादा</span>
           </div>
         </Link>
 

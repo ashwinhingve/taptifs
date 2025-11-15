@@ -156,9 +156,6 @@ export default function ContactPage() {
                 <a href="tel:+918349920943" className="text-sm text-gray-600 hover:text-amber-600 transition-colors block">
                   +91 83499 20943
                 </a>
-                <a href="tel:+919329216644" className="text-sm text-gray-600 hover:text-amber-600 transition-colors block">
-                  +91 93292 16644
-                </a>
                 <a href="tel:+917697661798" className="text-sm text-gray-600 hover:text-amber-600 transition-colors block">
                   +91 76976 61798
                 </a>
