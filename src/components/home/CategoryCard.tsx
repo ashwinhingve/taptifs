@@ -21,8 +21,8 @@ export function CategoryCard({
     <div className="bg-[#f5f1e8] rounded-lg p-6 flex flex-col items-center text-center group hover:shadow-lg transition-shadow">
       {/* Title and Arrow */}
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
-        {subtitle && <p className="text-sm text-gray-600 mb-3">{subtitle}</p>}
+        <h3 className="text-2xl font-bold text-gray-800 mb-3">{title}</h3>
+        {subtitle && <p className="text-base text-gray-600 mb-3">{subtitle}</p>}
         <Link href={href}>
           <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center mx-auto hover:bg-red-700 transition-colors cursor-pointer">
             <ArrowRight className="w-5 h-5 text-white" />

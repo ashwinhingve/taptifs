@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -37,9 +38,12 @@ type LoginFormData = z.infer<typeof loginSchema>
 type RegisterFormData = z.infer<typeof registerSchema>
 
 export default function LoginPage() {
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState<"login" | "register">("login")
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const loginForm = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -49,9 +53,34 @@ export default function LoginPage() {
     resolver: zodResolver(registerSchema),
   })
 
-  const onLoginSubmit = (data: LoginFormData) => {
-    console.log("Login:", data)
-    // Handle login logic
+  const onLoginSubmit = async (data: LoginFormData) => {
+    setIsLoading(true)
+    setError("")
+
+    try {
+      console.log("Login attempt:", data.email)
+
+      // Check for admin credentials
+      if (data.email === "admin@taptifs.com" && data.password === "tapti@admin2024") {
+        // Admin login
+        localStorage.setItem("adminAuth", "true")
+        localStorage.setItem("adminUser", data.email)
+        console.log("Admin login successful, redirecting...")
+
+        // Use router for navigation
+        router.push("/admin/dashboard")
+        return
+      }
+
+      // Regular customer login logic
+      console.log("Customer login:", data)
+      setError("Customer login not yet implemented. Use admin credentials for admin access.")
+    } catch (err) {
+      console.error("Login error:", err)
+      setError("An error occurred during login. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const onRegisterSubmit = (data: RegisterFormData) => {
@@ -117,6 +146,11 @@ export default function LoginPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className="space-y-6">
+                    {error && (
+                      <div className="bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-lg text-base">
+                        {error}
+                      </div>
+                    )}
                     <FormField label="Email Address" required error={loginForm.formState.errors.email?.message}>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -162,9 +196,10 @@ export default function LoginPage() {
 
                     <Button
                       type="submit"
+                      disabled={isLoading}
                       className="w-full bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white py-6 text-lg font-semibold shadow-lg"
                     >
-                      Sign In
+                      {isLoading ? "Signing In..." : "Sign In"}
                     </Button>
                   </form>
                 </motion.div>
@@ -316,6 +351,15 @@ export default function LoginPage() {
               </div>
             </div>
           </div>
+
+          {/* Admin Access Info */}
+          {activeTab === "login" && (
+            <div className="mt-6 p-4 bg-amber-50 rounded-lg border-2 border-amber-200">
+              <p className="text-sm text-center text-amber-800">
+                <strong>Admin Access:</strong> Use admin@taptifs.com to access dashboard
+              </p>
+            </div>
+          )}
 
           {/* Footer */}
           <p className="text-center text-gray-600 mt-8">

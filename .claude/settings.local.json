@@ -6,7 +6,9 @@
       "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm install:*)",
       "Bash(cd /mnt/d/Do\\ Not\\ Open/project/tapti/taptifs && npm run build:*)",
       "WebFetch(domain:www.amazon.in)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:upload.wikimedia.org)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []

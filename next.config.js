@@ -27,6 +27,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.pexels.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'logos-world.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'etimg.etb2bimg.com',
+      },
     ],
     unoptimized: false,
     formats: ['image/avif', 'image/webp'],

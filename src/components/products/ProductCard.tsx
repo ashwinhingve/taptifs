@@ -58,21 +58,21 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
                 <svg className="w-20 h-20 mx-auto text-amber-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
-                <p className="text-sm font-medium text-amber-700">{product.name}</p>
+                <p className="text-base font-medium text-amber-700">{product.name}</p>
               </div>
             </div>
           )}
           {product.featured && !showSaleBadge && (
-            <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs font-semibold px-2 py-1 rounded">
+            <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-sm font-semibold px-3 py-2 rounded">
               Featured
             </div>
           )}
           {showSaleBadge && discount > 0 ? (
-            <div className="absolute top-2 right-2 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded shadow-md">
+            <div className="absolute top-2 right-2 bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-2 rounded shadow-md">
               SALE
             </div>
           ) : discount > 0 ? (
-            <div className="absolute top-2 right-2 bg-destructive text-destructive-foreground text-xs font-semibold px-2 py-1 rounded">
+            <div className="absolute top-2 right-2 bg-destructive text-destructive-foreground text-sm font-semibold px-3 py-2 rounded">
               {discount}% OFF
             </div>
           ) : null}
@@ -81,15 +81,15 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
         {/* Product Info */}
         <div className="p-4 flex flex-col flex-1">
           {/* Category */}
-          <p className="text-xs text-muted-foreground mb-1">{product.category}</p>
+          <p className="text-sm text-muted-foreground mb-1">{product.category}</p>
 
           {/* Product Name */}
-          <h3 className="font-semibold text-base mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-semibold text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
             {product.name}
           </h3>
 
           {/* Short Description */}
-          <p className="text-sm text-muted-foreground mb-3 line-clamp-2 flex-1">
+          <p className="text-base text-muted-foreground mb-3 line-clamp-2 flex-1">
             {product.short_description}
           </p>
 
@@ -110,7 +110,7 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
                 </svg>
               ))}
             </div>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-sm text-muted-foreground">
               ({product.review_count})
             </span>
           </div>
@@ -123,7 +123,7 @@ export function ProductCard({ product, showSaleBadge = false }: ProductCardProps
                 ₹{product.price}
               </span>
               {product.originalPrice && (
-                <span className="text-sm text-muted-foreground line-through">
+                <span className="text-base text-muted-foreground line-through">
                   ₹{product.originalPrice}
                 </span>
               )}

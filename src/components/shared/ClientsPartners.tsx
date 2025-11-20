@@ -1,13 +1,13 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import { AnimatedSection, StaggerContainer, StaggerItem } from "./AnimatedSection"
-import { Handshake, Award, Leaf, Globe, Gem } from "lucide-react"
 
 interface Partner {
   name: string
   description: string
-  icon: React.ReactNode
+  logo: string
   color: string
 }
 
@@ -15,31 +15,31 @@ const partners: Partner[] = [
   {
     name: "Yashodhara International Pvt. Ltd.",
     description: "National & International Marketing Partner",
-    icon: <Globe className="w-12 h-12 text-white" />,
+    logo: "/images/partners/yashodhara.png",
     color: "from-blue-500 to-blue-700",
   },
   {
     name: "Almighty Organics Pvt. Ltd.",
     description: "Certified Organic Supplier",
-    icon: <Leaf className="w-12 h-12 text-white" />,
+    logo: "/images/partners/almighty.png",
     color: "from-green-500 to-green-700",
   },
   {
     name: "Deshmukh & Co.",
     description: "Retail Sales Partner",
-    icon: <Handshake className="w-12 h-12 text-white" />,
+    logo: "/images/partners/deshmukh.png",
     color: "from-amber-500 to-amber-700",
   },
   {
     name: "Space Automation",
     description: "Website & eCommerce Partner",
-    icon: <Award className="w-12 h-12 text-white" />,
+    logo: "/images/partners/space.png",
     color: "from-purple-500 to-purple-700",
   },
   {
     name: "Royal Saffron (Nowhatta, Kashmir)",
     description: "Supplier of 100% Original, Lab-Tested Saffron & Shilajit (Self-grown & authentically sourced)",
-    icon: <Gem className="w-12 h-12 text-white" />,
+    logo: "/images/partners/royal-saffron.png",
     color: "from-red-500 to-red-700",
   },
 ]
@@ -62,9 +62,18 @@ export function ClientsPartners() {
           {partners.map((partner, index) => (
             <StaggerItem key={index}>
               <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group hover:scale-105 h-full flex flex-col">
-                {/* Icon */}
-                <div className={`w-20 h-20 bg-gradient-to-br ${partner.color} rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                  {partner.icon}
+                {/* Logo */}
+                <div className="w-48 h-48 bg-white rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-105 transition-transform duration-300 shadow-md border-2 border-gray-100 p-6">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain"
+                      quality={100}
+                      priority
+                    />
+                  </div>
                 </div>
 
                 {/* Partner Name */}

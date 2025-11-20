@@ -20,11 +20,11 @@ export function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-lg font-bold">Tapti Food & Spices</h3>
-                <p className="text-xs text-muted-foreground">शुद्धता का वादा</p>
+                <h3 className="text-xl font-bold">Tapti Food & Spices</h3>
+                <p className="text-sm text-muted-foreground">शुद्धता का वादा</p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               Premium quality food and spices for your culinary adventures.
             </p>
             <div className="flex space-x-4">
@@ -54,8 +54,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Shop</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold">Shop</h3>
+            <ul className="space-y-2 text-base text-muted-foreground">
               <li><Link href="/products" className="hover:text-primary transition">All Products</Link></li>
               <li><Link href="/products" className="hover:text-primary transition">Spices</Link></li>
               <li><Link href="/products" className="hover:text-primary transition">Blends</Link></li>
@@ -66,8 +66,8 @@ export function Footer() {
 
           {/* Company */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Company</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold">Company</h3>
+            <ul className="space-y-2 text-base text-muted-foreground">
               <li><Link href="/about" className="hover:text-primary transition">About Us</Link></li>
               <li><Link href="/recipes" className="hover:text-primary transition">Recipes</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
@@ -77,8 +77,8 @@ export function Footer() {
 
           {/* Support */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Support</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h3 className="text-xl font-semibold">Support</h3>
+            <ul className="space-y-2 text-base text-muted-foreground">
               <li><Link href="/contact" className="hover:text-primary transition">FAQ</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition">Shipping</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition">Returns</Link></li>
@@ -90,17 +90,17 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t">
-          <div className="text-center text-sm text-muted-foreground space-y-2">
+          <div className="text-center text-base text-muted-foreground space-y-2">
             <p>&copy; {currentYear} Tapti Food & Spices (TAPTIFS™). All rights reserved.</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-3">
-              <p>📜 FSSAI License: 21423150001550</p>
+              <p>📜 FSSAI License:  21425150001179</p>
               <p className="hidden sm:block">|</p>
-              <p>📋 GST No.: 23EDYPD4924F1ZF</p>
+              <p>📋 GST No.: 23GGLPD7346M1ZZ</p>
             </div>
             <p>@UDYAM REGISTRATION NUMBER UDYAM-MP-08-0030813</p>
             <p className="mt-2">📍 Multai | Betul | Bhopal | Indore, Madhya Pradesh</p>
             <p>📧 info@taptifs.com</p>
-            <p>📞 +91-93292 16544 | +91-97703 55137 | +91-83499 20943 | +91-93292 16644 | +91-76976 61798</p>
+            <p>📞 +91-93292 16544 | +91-97703 55137 | +91-83499 20943 | +91-76976 61798</p>
           </div>
         </div>
       </div>

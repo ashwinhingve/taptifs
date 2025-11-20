@@ -31,9 +31,9 @@ export function Header() {
               priority
             />
           </div>
-          <div className="flex flex-col lg:flex-row">
-            <span className="text-xl md:text-2xl font-bold text-primary leading-tight">Tapti Food & Spices</span>
-            <span className="text-xs text-muted-foreground hidden md:block md:ml-2 mt-2">शुद्धता का वादा</span>
+          <div className="flex flex-col">
+            <span className="text-2xl md:text-3xl font-bold text-primary leading-tight">Tapti Food & Spices</span>
+            <span className="text-xl text-center font-semibold text-muted-foreground hidden md:block md:ml-2 mt-2">शुद्धता का वादा</span>
           </div>
         </Link>
 
@@ -101,7 +101,7 @@ export function Header() {
                 <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
               </svg>
               {mounted && totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center font-semibold">
+                <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-sm text-primary-foreground flex items-center justify-center font-semibold">
                   {totalItems}
                 </span>
               )}

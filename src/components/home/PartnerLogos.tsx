@@ -1,12 +1,29 @@
 "use client";
 
+import Image from "next/image";
+
 export function PartnerLogos() {
   const partners = [
-    { name: "Amazon", logo: "🛒" },
-    { name: "Flipkart", logo: "🛍️" },
-    { name: "meesho", logo: "🛵" },
-    // { name: "Swiggy", logo: "🥘" },
-    // { name: "Zomato", logo: "🍴" },
+    {
+      name: "Amazon",
+      logo: "/logos/amazon.jpg"
+    },
+    {
+      name: "Flipkart",
+      logo: "/logos/flipkart.jpg"
+    },
+    {
+      name: "BLINKIT",
+      logo: "/logos/blinkit.jpg"
+    },
+    {
+      name: "JIOMART",
+      logo: "/logos/jiomart.png"
+    },
+    {
+      name: "meesho",
+      logo: "/logos/meesho.jpg"
+    },
   ];
 
   return (
@@ -15,10 +32,17 @@ export function PartnerLogos() {
         {partners.map((partner, idx) => (
           <div
             key={idx}
-            className="text-center opacity-80 hover:opacity-100 transition-opacity"
+            className="text-center opacity-90 hover:opacity-100 transition-opacity"
           >
-            <div className="text-4xl mb-2">{partner.logo}</div>
-            <p className="text-sm font-medium text-gray-600">{partner.name}</p>
+            <div className="relative w-24 h-12 mb-2 flex items-center justify-center">
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <p className="text-base font-medium text-gray-600">{partner.name}</p>
           </div>
         ))}
       </div>

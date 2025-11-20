@@ -25,7 +25,7 @@ export function Navigation() {
             key={item.href}
             href={item.href}
             className={cn(
-              "text-sm font-medium transition-colors hover:text-primary",
+              "text-xl font-semibold transition-colors hover:text-primary",
               isActive
                 ? "text-foreground"
                 : "text-foreground/60"

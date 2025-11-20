@@ -477,51 +477,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      {/* <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 max-w-4xl mx-auto">
-              TAPTIFS is on the journey to make Superfood "Available" to all.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <BenefitBadge
-              icon={<Wheat className="w-10 h-10" />}
-              title="Gluten Free"
-            />
-            <BenefitBadge
-              icon={<Leaf className="w-10 h-10" />}
-              title="GMO Free"
-            />
-            <BenefitBadge
-              icon={<Apple className="w-10 h-10" />}
-              title="Vegetarian"
-            />
-            <BenefitBadge
-              icon={<Activity className="w-10 h-10" />}
-              title="Low Carb"
-            />
-            <BenefitBadge
-              icon={<Zap className="w-10 h-10" />}
-              title="Boosts Energy Levels"
-            />
-            <BenefitBadge
-              icon={<Heart className="w-10 h-10" />}
-              title="Supports Digestive Health"
-            />
-            <BenefitBadge
-              icon={<Sparkles className="w-10 h-10" />}
-              title="Rich in Nutrients"
-            />
-            <BenefitBadge
-              icon={<Shield className="w-10 h-10" />}
-              title="Enhances Immunity"
-            />
-          </div>
-        </div>
-      </section> */}
 
       {/* Production Process Showcase Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 via-white to-red-50 relative overflow-hidden">

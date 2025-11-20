@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { ProductCard } from "@/components/products/ProductCard"
-import { products, categories } from "@/data/products"
+import { products as initialProducts, categories } from "@/data/products"
+import { getProducts } from "@/lib/productStorage"
 import { Button } from "@/components/ui/button"
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection"
+import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { Filter, X, SlidersHorizontal, Search } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -14,9 +15,16 @@ export default function ProductsPage() {
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000])
   const [searchQuery, setSearchQuery] = useState("")
   const [showMobileFilters, setShowMobileFilters] = useState(false)
+  const [products, setProducts] = useState(initialProducts)
+
+  // Load products from localStorage on mount
+  useEffect(() => {
+    const loadedProducts = getProducts()
+    setProducts(loadedProducts)
+  }, [])
 
   // Get active products only
-  const activeProducts = useMemo(() => products.filter(p => p.is_active), [])
+  const activeProducts = useMemo(() => products.filter(p => p.is_active), [products])
 
   // Calculate category counts from active products
   const categoryCounts = useMemo(() => {
@@ -87,7 +95,7 @@ export default function ProductsPage() {
     <div className="space-y-6">
       {/* Search */}
       <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="font-bold text-lg mb-4 text-gray-800">Search Products</h3>
+        <h3 className="font-bold text-xl mb-4 text-gray-800">Search Products</h3>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
@@ -102,7 +110,7 @@ export default function ProductsPage() {
 
       {/* Categories */}
       <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="font-bold text-lg mb-4 text-gray-800">Categories</h3>
+        <h3 className="font-bold text-xl mb-4 text-gray-800">Categories</h3>
         <div className="space-y-2">
           <button
             onClick={() => setSelectedCategory("all")}
@@ -114,7 +122,7 @@ export default function ProductsPage() {
           >
             <div className="flex justify-between items-center">
               <span>All Products</span>
-              <span className="text-sm opacity-80">({activeProducts.length})</span>
+              <span className="text-base opacity-80">({activeProducts.length})</span>
             </div>
           </button>
           {categories.map((category) => (
@@ -129,7 +137,7 @@ export default function ProductsPage() {
             >
               <div className="flex justify-between items-center">
                 <span>{category.name}</span>
-                <span className="text-sm opacity-80">({categoryCounts[category.name] || 0})</span>
+                <span className="text-base opacity-80">({categoryCounts[category.name] || 0})</span>
               </div>
             </button>
           ))}
@@ -138,9 +146,9 @@ export default function ProductsPage() {
 
       {/* Price Range */}
       <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="font-bold text-lg mb-4 text-gray-800">Price Range</h3>
+        <h3 className="font-bold text-xl mb-4 text-gray-800">Price Range</h3>
         <div className="space-y-4">
-          <div className="flex items-center justify-between text-sm font-semibold text-gray-700">
+          <div className="flex items-center justify-between text-base font-semibold text-gray-700">
             <span>₹{priceRange[0]}</span>
             <span>₹{priceRange[1]}</span>
           </div>
@@ -163,7 +171,7 @@ export default function ProductsPage() {
               <button
                 key={range.label}
                 onClick={() => setPriceRange([0, range.max])}
-                className="px-3 py-2 rounded-lg text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                className="px-3 py-2 rounded-lg text-base font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
               >
                 {range.label}
               </button>
@@ -226,58 +234,54 @@ export default function ProductsPage() {
           {/* Main Content */}
           <main className="flex-1">
             {/* Sort & View Options */}
-            <AnimatedSection direction="up" delay={0.1}>
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-white p-6 rounded-2xl shadow-lg">
-                <div className="text-sm font-semibold text-gray-700">
-                  Showing <span className="text-amber-600">{filteredProducts.length}</span> products
-                </div>
-                <div className="flex items-center gap-3">
-                  <label htmlFor="sort" className="text-sm font-semibold text-gray-700">
-                    Sort by:
-                  </label>
-                  <select
-                    id="sort"
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="px-4 py-2 rounded-lg border-2 border-gray-200 bg-white text-sm font-medium focus:border-amber-500 focus:outline-none transition-colors"
-                  >
-                    <option value="featured">Featured</option>
-                    <option value="name">Name (A-Z)</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                    <option value="rating">Highest Rated</option>
-                  </select>
-                </div>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 bg-white p-6 rounded-2xl shadow-lg">
+              <div className="text-base font-semibold text-gray-700">
+                Showing <span className="text-amber-600">{filteredProducts.length}</span> products
               </div>
-            </AnimatedSection>
+              <div className="flex items-center gap-3">
+                <label htmlFor="sort" className="text-base font-semibold text-gray-700">
+                  Sort by:
+                </label>
+                <select
+                  id="sort"
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="px-4 py-2 rounded-lg border-2 border-gray-200 bg-white text-base font-medium focus:border-amber-500 focus:outline-none transition-colors"
+                >
+                  <option value="featured">Featured</option>
+                  <option value="name">Name (A-Z)</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
+            </div>
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
-              <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredProducts.map((product) => (
-                  <StaggerItem key={product.id}>
+                  <div key={product.id}>
                     <ProductCard product={product} />
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            ) : (
-              <AnimatedSection direction="up">
-                <div className="text-center py-20 bg-white rounded-2xl shadow-lg">
-                  <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-red-100 rounded-full flex items-center justify-center">
-                    <Filter className="w-16 h-16 text-amber-600" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-800">No products found</h3>
-                  <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                    We couldn't find any products matching your criteria. Try adjusting your filters.
-                  </p>
-                  <Button
-                    onClick={resetFilters}
-                    className="bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white shadow-lg"
-                  >
-                    Clear All Filters
-                  </Button>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-20 bg-white rounded-2xl shadow-lg">
+                <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-amber-100 to-red-100 rounded-full flex items-center justify-center">
+                  <Filter className="w-16 h-16 text-amber-600" />
                 </div>
-              </AnimatedSection>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">No products found</h3>
+                <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                  We couldn't find any products matching your criteria. Try adjusting your filters.
+                </p>
+                <Button
+                  onClick={resetFilters}
+                  className="bg-gradient-to-r from-amber-600 to-red-700 hover:from-amber-700 hover:to-red-800 text-white shadow-lg"
+                >
+                  Clear All Filters
+                </Button>
+              </div>
             )}
           </main>
         </div>
