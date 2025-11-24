@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "./Navigation";
 import { MobileMenu } from "./MobileMenu";
 import { useCartStore } from "@/store/useCartStore";
+import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,90 +19,73 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3">
-          <div className="relative h-10 w-10 md:h-15 md:w-20">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4">
+        {/* Logo and Brand */}
+        <Link
+          href="/"
+          className="flex items-center space-x-3 group transition-opacity hover:opacity-80"
+          aria-label="Tapti Food & Spices - Home"
+        >
+          <div className="relative h-12 w-12 md:h-16 md:w-16 shrink-0">
             <Image
               src="/images/logo.jpg"
-              alt="Taptifs Logo"
+              alt="Tapti Food & Spices Logo"
               fill
-              className="object-contain"
+              className="object-contain rounded-full"
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-2xl md:text-3xl font-bold text-primary leading-tight">Tapti Food & Spices</span>
-            <span className="text-xl text-center font-semibold text-muted-foreground hidden md:block md:ml-2 mt-2">शुद्धता का वादा</span>
+            <span className="text-lg md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-amber-600 to-red-700 bg-clip-text text-transparent leading-tight">
+              Tapti Food &amp; Spices
+            </span>
+            <span className="text-xs md:text-sm font-semibold text-muted-foreground hidden sm:block">
+              शुद्धता का वादा - The Taste of Purity
+            </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-6">
+        <nav className="hidden lg:flex lg:items-center" aria-label="Main navigation">
           <Navigation />
-        </div>
+        </nav>
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-3">
           {/* Search Icon */}
-          <Button variant="ghost" size="icon" className="hidden md:flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden md:flex hover:bg-amber-50 hover:text-amber-700 transition-colors"
+            aria-label="Search"
+          >
+            <Search className="h-5 w-5" />
           </Button>
 
           {/* User Account */}
           <Link href="/login">
-            <Button variant="ghost" size="icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-amber-50 hover:text-amber-700 transition-colors"
+              aria-label="User account"
+            >
+              <User className="h-5 w-5" />
             </Button>
           </Link>
 
           {/* Shopping Cart */}
           <Link href="/cart">
-            <Button variant="ghost" size="icon" className="relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-              </svg>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative hover:bg-amber-50 hover:text-amber-700 transition-colors"
+              aria-label={`Shopping cart${mounted && totalItems > 0 ? ` with ${totalItems} items` : ''}`}
+            >
+              <ShoppingCart className="h-5 w-5" />
               {mounted && totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-primary text-sm text-primary-foreground flex items-center justify-center font-semibold">
+                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-gradient-to-r from-amber-600 to-red-700 text-xs text-white flex items-center justify-center font-bold shadow-md">
                   {totalItems}
                 </span>
               )}
@@ -112,40 +96,15 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden hover:bg-amber-50 hover:text-amber-700 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
+              <X className="h-6 w-6" />
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
+              <Menu className="h-6 w-6" />
             )}
           </Button>
         </div>
